@@ -49,7 +49,11 @@ const TopBar = () => {
   const userName = "Matt Appleyard";
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: '#FFFFFF', color: '#000' }}>
+    <AppBar position="static" sx={{ 
+      backgroundColor: '#FFFFFF', 
+      color: '#000',
+      boxShadow: '0px 2px 2px 0px #A3ABB942;',
+    }}>
       <Toolbar>
         {/* Search Bar */}
         <Search>
@@ -82,20 +86,20 @@ const TopBar = () => {
             }}
           />
 
-        {/* Display User Name */}
-        <Typography
-          variant="h6"
-          component="div"
-          sx={{
-            marginLeft: 2,
-            marginRight: 1,
-            fontFamily: 'Mulish, sans-serif',
-            fontWeight: 500,
-            lineHeight: '1.25em',
-          }}
-        >
-          {userName}
-        </Typography>
+          {/* Display User Name */}
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{
+              marginLeft: 2,
+              marginRight: 1,
+              fontFamily: 'Mulish, sans-serif',
+              fontWeight: 500,
+              lineHeight: '1.25em',
+            }}
+          >
+            {userName}
+          </Typography>
 
           {/* Profile Badge */}
           <IconButton color="inherit">

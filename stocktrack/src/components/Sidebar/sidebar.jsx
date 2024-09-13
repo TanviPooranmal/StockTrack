@@ -10,7 +10,6 @@ const Sidebar = () => {
         width: '12.5em',
         height: '100vh',
         backgroundColor: '#FFFFFF',
-        boxShadow: '2px 0px 5px rgba(0, 0, 0, 0.1)',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
