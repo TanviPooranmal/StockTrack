@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import { ReactComponent as SidebarTabsSVG } from '../../assets/Menu_light.svg';
 import { ReactComponent as LogoSVG } from '../../assets/Logo.svg';
 
