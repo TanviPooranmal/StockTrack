@@ -49,12 +49,10 @@ const TopBar = () => {
   const userName = "Matt Appleyard";
 
   return (
-    <AppBar position="static" sx={{ 
-      backgroundColor: '#FFFFFF', 
-      color: '#000',
-      boxShadow: '0px 2px 2px 0px #A3ABB942;',
+    <AppBar position="static" sx={{
+      backgroundColor: '#FFFFFF', color: '#000', height: '4.5em', boxShadow: '0px 2px 2px 0px #A3ABB942;',
     }}>
-      <Toolbar>
+      <Toolbar sx={{ height: '100%' }}>
         {/* Search Bar */}
         <Search>
           <SearchIconWrapper>
@@ -106,7 +104,6 @@ const TopBar = () => {
             <Avatar alt="User Profile" src="/path-to-your-profile-image.jpg" />
           </IconButton>
         </Box>
-
       </Toolbar>
     </AppBar>
   );

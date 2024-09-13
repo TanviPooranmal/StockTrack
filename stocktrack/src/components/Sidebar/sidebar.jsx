@@ -21,7 +21,7 @@ const Sidebar = () => {
         {/* Logo */}
         <Box
           sx={{
-            height: '4.5em',
+            height: '3em',
             width: '100%',
             padding: '1.5em',
             backgroundColor: '#ECECEC',
@@ -36,7 +36,7 @@ const Sidebar = () => {
             margin: 0,
           }}
         >
-          <LogoSVG style={{ height: '100%', width: 'auto' }} />
+          <LogoSVG style={{ height: 'fit-content', width: 'auto' }} />
         </Box>
 
         {/* SVG for Tab List */}

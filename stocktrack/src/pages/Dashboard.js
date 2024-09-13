@@ -1,7 +1,9 @@
 import React from 'react';
 import {
   TopBar,
-  Sidebar
+  Sidebar,
+  WelcomeCard,
+  BarChart
 } from '../components';
 import styles from '../css/dashboard.module.css';
 
@@ -12,7 +14,8 @@ const Dashboard = () => {
       <div className={styles.mainContent}>
         <TopBar />
         <div className={styles.content}>
-          <h1>Dashboard</h1>
+          <WelcomeCard />
+          <BarChart />
           {/* Add more content or components for the dashboard here */}
         </div>
       </div>
