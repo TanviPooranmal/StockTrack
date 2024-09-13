@@ -7,12 +7,12 @@ const WelcomeCard = () => {
         <Box
             sx={{
                 backgroundColor: '#2BEBC8',
-                width: '45em',
-                height: '14.0625em',
-                borderRadius: '0.5em',
+                width: '48rem',
+                height: '12.0625rem',
+                borderRadius: '0.5rem',
                 display: 'flex',
                 alignItems: 'center',
-                padding: '0.75em',
+                padding: '0.75rem',
                 boxSizing: 'border-box',
                 overflow: 'hidden',
             }}
@@ -24,10 +24,10 @@ const WelcomeCard = () => {
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'center',
-                    padding: '1.5em',
+                    padding: '1.5rem',
                     boxSizing: 'border-box',
                     height: '100%',
-                    width: '50%',
+                    minWidth: '60%',
                 }}
             >
                 <Typography
@@ -37,8 +37,8 @@ const WelcomeCard = () => {
                         color: '#000000',
                         fontFamily: 'Mulish',
                         fontWeight: '600',
-                        fontSize: '1.125em',
-                        lineHeight: '1.625em',
+                        fontSize: '1.2rem',
+                        lineHeight: '1.625rem',
                         textAlign: 'left',
                     }}
                 >
@@ -51,11 +51,12 @@ const WelcomeCard = () => {
                         color: '#4A4A4A',
                         fontFamily: 'Mulish',
                         fontWeight: '400',
-                        fontSize: '0.9em',
-                        lineHeight: '1.375em',
+                        fontSize: '1rem',
+                        lineHeight: '1.375rem',
                         textAlign: 'left',
-                        marginTop: '0.5em',
+                        marginTop: '0.5rem',
                         boxSizing: 'border-box',
+                        width: '100%',
                     }}
                 >
                     Try our new Admin Dashboard Template, build with live Ant-Design components. Customize it to your needs and release to production!
@@ -70,7 +71,7 @@ const WelcomeCard = () => {
                     alignItems: 'center',
                     justifyContent: 'flex-end',
                     height: '100%',
-                    width: '50%',
+                    minWidth: '40%',
                     boxSizing: 'border-box',
                 }}
             >

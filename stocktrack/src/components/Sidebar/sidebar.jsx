@@ -7,7 +7,7 @@ const Sidebar = () => {
   return (
     <Box
       sx={{
-        width: '12.5em',
+        width: '16rem',
         height: '100vh',
         backgroundColor: '#FFFFFF',
         display: 'flex',
@@ -21,17 +21,17 @@ const Sidebar = () => {
         {/* Logo */}
         <Box
           sx={{
-            height: '3em',
+            height: '4.5rem',
             width: '100%',
-            padding: '1.5em',
+            padding: '1.5rem',
             backgroundColor: '#ECECEC',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            fontSize: '1.5rem',
+            fontSize: '1.5rrem',
             fontWeight: 'bold',
             textAlign: 'center',
-            gap: '0.375em',
+            gap: '0.375rem',
             boxSizing: 'border-box',
             margin: 0,
           }}
@@ -47,7 +47,7 @@ const Sidebar = () => {
             alignItems: 'center',
             justifyContent: 'center',
             width: '100%',
-            height: '22em',
+            height: 'fit-content',
             overflow: 'hidden',
           }}
         >
