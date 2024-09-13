@@ -1,84 +1,132 @@
 import React from 'react';
-import { Box, TextField, Checkbox, FormControlLabel, Button, Typography } from '@mui/material';
-import { styled } from '@mui/system';
-
-const LoginContainer = styled(Box)({
-  width: '37.5rem', // 600px in rem
-  height: '20rem', // 320px in rem
-  padding: '1.5rem 1.5rem 0.5rem 1.5rem', // Convert 24px to rem
-  borderRadius: '0.5rem 0 0 0', // Convert 8px to rem
-  opacity: 1, // Ensure opacity is set to 1
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  alignItems: 'center',
-  gap: '0', // No gap between elements
-  boxSizing: 'border-box',
-  backgroundColor: 'black', // Added background color for visibility
-});
-
-const SvgContainer = styled(Box)({
-  width: '50%', // The right half of the container
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-});
-
-const MainContainer = styled(Box)({
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  height: '100vh',
-  gap: '2rem',
-});
+import { ReactComponent as LogoSVG } from '../assets/illustrationLogin.svg';
+import { AccountCircle, Lock } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    navigate('/dashboard');
+  };
+
   return (
-    <MainContainer>
-      <LoginContainer>
-        <Box sx={{ width: '100%' }}>
-          <TextField
-            fullWidth
-            label="Username"
-            variant="outlined"
-            margin="normal"
-          />
-          <TextField
-            fullWidth
-            label="Password"
-            type="password"
-            variant="outlined"
-            margin="normal"
-          />
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-            <FormControlLabel
-              control={<Checkbox />}
-              label="Remember me"
-            />
-            <Typography variant="body2" align="right">
-              <a href="/forgot-password">Forgot password?</a>
-            </Typography>
-          </Box>
-          <Button
-            fullWidth
-            variant="contained"
-            color="primary"
-            sx={{ marginTop: '1rem' }}
-          >
-            Login Now
-          </Button>
-          <Typography variant="body2" align="center" sx={{ marginTop: '1rem' }}>
-            Or <a href="/register">Register Now!</a>
-          </Typography>
-        </Box>
-      </LoginContainer>
-      <SvgContainer>
-        {/* Replace this with your actual SVG */}
-        <svg width="100%" height="100%" viewBox="0 0 100 100">
-          <circle cx="50" cy="50" r="40" stroke="black" strokeWidth="3" fill="lightgray" />
-        </svg>
-      </SvgContainer>
-    </MainContainer>
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100vh',
+      backgroundColor: '#f0f0f0',
+    }}>
+      <div style={{
+        display: 'flex',
+        width: '37.5rem',
+        height: '20rem',
+        padding: '1.5rem',
+        borderRadius: '0.5rem',
+        backgroundColor: '#FFFFFF',
+        boxSizing: 'border-box',
+        position: 'relative',
+      }}>
+        {/* Left Half: Form and Details */}
+        <div style={{
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          padding: '1.5rem',
+          boxSizing: 'border-box',
+          position: 'relative',
+        }}>
+          <form onSubmit={handleLogin}>
+            <div style={{ marginBottom: '1rem', position: 'relative' }}>
+              <AccountCircle style={{
+                position: 'absolute',
+                top: '50%',
+                left: '0.625rem',
+                transform: 'translateY(-50%)',
+                color: '#ccc',
+              }} />
+              <input
+                type="text"
+                placeholder="Username"
+                style={{
+                  width: '100%',
+                  padding: '0.5rem 0.5rem 0.5rem 2.25rem',
+                  marginBottom: '0.5rem',
+                  borderRadius: '0.25rem',
+                  border: '1px solid #ccc',
+                  position: 'relative',
+                }}
+              />
+            </div>
+            <div style={{ marginBottom: '1rem', position: 'relative' }}>
+              <Lock style={{
+                position: 'absolute',
+                top: '50%',
+                left: '0.625rem',
+                transform: 'translateY(-50%)',
+                color: '#ccc',
+              }} />
+              <input
+                type="password"
+                placeholder="Password"
+                style={{
+                  width: '100%',
+                  padding: '0.5rem 0.5rem 0.5rem 2.25rem',
+                  borderRadius: '0.25rem',
+                  border: '1px solid #ccc',
+                  position: 'relative',
+                }}
+              />
+            </div>
+            <div style={{
+              marginBottom: '1rem',
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+            }}>
+              <label style={{
+                display: 'flex',
+                alignItems: 'center',
+                whiteSpace: 'nowrap',
+              }}>
+                <input type="checkbox" style={{ marginRight: '0.5rem', textAlign: 'left' }} />
+                Remember me
+              </label>
+              <a href="/" style={{ marginLeft: '1rem', whiteSpace: 'nowrap', textAlign: 'right' }}>Forgot password?</a>
+            </div>
+            <button
+              type="submit"
+              style={{
+                width: '100%',
+                padding: '0.5rem',
+                backgroundColor: '#694bdb',
+                color: '#FFFFFF',
+                border: 'none',
+                borderRadius: '0.25rem',
+                cursor: 'pointer',
+              }}
+            >
+              Login Now
+            </button>
+            <p style={{ textAlign: 'left', marginTop: '1rem' }}>
+              Or <a href="/">Register Now!</a>
+            </p>
+          </form>
+        </div>
+        {/* Right Half: SVG */}
+        <div style={{
+          flex: 1,
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+          <LogoSVG style={{ width: '100%', height: 'auto' }} />
+        </div>
+      </div>
+    </div>
   );
 };
 
