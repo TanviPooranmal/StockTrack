@@ -1,0 +1,13 @@
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Full viewport height */
+    background-color: #f4f4f4; /* Light background color */
+  }
+  
+  .content {
+    padding: 20px;
+    flex: 1; /* Takes up remaining space below the TopBar */
+    overflow-y: auto; /* Allows scrolling if content overflows */
+  }
+  
