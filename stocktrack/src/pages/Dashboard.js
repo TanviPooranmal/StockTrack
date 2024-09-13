@@ -37,7 +37,7 @@ const Dashboard = () => {
           {/* Welcome card and Bar chart side by side */}
           <div className={styles.cardContainer}>
             <WelcomeCard isDarkMode={isDarkMode} />
-            <BarChart isDarkMode={isDarkMode} />
+            <BarChart symbol="MSFT" isDarkMode={false} />
           </div>
 
           {/* Line charts in the next row, placed side by side */}

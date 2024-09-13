@@ -1,24 +1,57 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js';
 
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale);
 
-const BarChart = ({ isDarkMode }) => {
-    const data = {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        datasets: [
-            {
-                label: 'Sales',
-                data: [65, 59, 80, 81, 56, 55, 40],
-                backgroundColor: isDarkMode ? '#ff7777' : '#3c1ead',
-                borderColor: isDarkMode ? '#ff7777' : '#3c1ead',
-                borderWidth: 1,
-            },
-        ],
-    };
+const BarChart = ({ isDarkMode, symbol }) => {
+    const [chartData, setChartData] = useState({});
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
-    // Chart options
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch(`http://localhost:5000/api/stocks/${symbol}`);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+
+                if (data.error) {
+                    throw new Error(data.message);
+                }
+
+                if (data.response && Array.isArray(data.response)) {
+                    const labels = data.response.map(item => item.date);
+                    const values = data.response.map(item => item.close);
+
+                    setChartData({
+                        labels,
+                        datasets: [
+                            {
+                                label: 'Stock Price',
+                                data: values,
+                                backgroundColor: isDarkMode ? '#ff7777' : '#3c1ead',
+                                borderColor: isDarkMode ? '#ff7777' : '#3c1ead',
+                                borderWidth: 1,
+                            },
+                        ],
+                    });
+                } else {
+                    throw new Error('Invalid response format');
+                }
+            } catch (error) {
+                console.error('Fetch error:', error);
+                setError(error.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+    }, [symbol, isDarkMode]);
+
     const options = {
         responsive: true,
         plugins: {
@@ -64,7 +97,13 @@ const BarChart = ({ isDarkMode }) => {
             }}
         >
             <div style={{ width: '100%', height: '100%' }}>
-                <Bar data={data} options={options} />
+                {loading ? (
+                    <p>Loading...</p>
+                ) : error ? (
+                    <p>Error: {error}</p>
+                ) : (
+                    <Bar data={chartData} options={options} />
+                )}
             </div>
             <div
                 style={{
