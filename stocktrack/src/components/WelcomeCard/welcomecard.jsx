@@ -1,12 +1,13 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
-import { ReactComponent as WelcomeSVG } from '../../assets/light_bg_welcome.svg';
+import { ReactComponent as LightWelcomeSVG } from '../../assets/light_bg_welcome.svg';
+import { ReactComponent as DarkWelcomeSVG } from '../../assets/dark_bg_welcome.svg';
 
-const WelcomeCard = () => {
+const WelcomeCard = ({ isDarkMode }) => {
     return (
         <Box
             sx={{
-                backgroundColor: '#2BEBC8',
+                backgroundColor: isDarkMode ? '#0D0C0F' : '#2BEBC8',
                 width: '48rem',
                 height: '12.0625rem',
                 borderRadius: '0.5rem',
@@ -34,7 +35,7 @@ const WelcomeCard = () => {
                     variant="h5"
                     component="div"
                     sx={{
-                        color: '#000000',
+                        color: isDarkMode ? '#D0D0D0' : '#000000',
                         fontFamily: 'Mulish',
                         fontWeight: '600',
                         fontSize: '1.2rem',
@@ -48,7 +49,7 @@ const WelcomeCard = () => {
                     variant="body1"
                     component="div"
                     sx={{
-                        color: '#4A4A4A',
+                        color: isDarkMode ? '#D0D0D0' : '#4A4A4A',
                         fontFamily: 'Mulish',
                         fontWeight: '400',
                         fontSize: '1rem',
@@ -75,7 +76,11 @@ const WelcomeCard = () => {
                     boxSizing: 'border-box',
                 }}
             >
-                <WelcomeSVG style={{ height: '100%', width: 'max-content' }} />
+                {isDarkMode ? (
+                    <DarkWelcomeSVG style={{ height: '100%', width: 'max-content' }} />
+                ) : (
+                    <LightWelcomeSVG style={{ height: '100%', width: 'max-content' }} />
+                )}
             </Box>
         </Box>
     );

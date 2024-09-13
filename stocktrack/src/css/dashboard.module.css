@@ -4,6 +4,12 @@
   background-color: #ECECEC;
 }
 
+.dashboardDark {
+  display: flex;
+  background-color: #1e1f23;
+  height: 100vh;
+}
+
 .mainContent {
   flex: 1;
   display: flex;
@@ -12,18 +18,8 @@
 
 .authContainer {
   display: flex;
-  justify-content: flex-end; /* Aligns content to the right */
+  justify-content: flex-end;
   margin-bottom: 1rem;
-}
-
-.loginButton {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 0.25rem;
-  cursor: pointer;
 }
 
 .userBadge {
@@ -116,4 +112,72 @@
   flex: 1;
   min-width: 0;
   max-width: 25em;
+}
+
+.toggleIcon {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+
+  .welcomeCard,
+  .barChart {
+    max-width: 40em;
+  }
+
+  .chart1,
+  .chart2,
+  .chart3 {
+    width: 20rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .dashboard {
+    flex-direction: column;
+  }
+
+  .authContainer {
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .cardContainer,
+  .lineChartsContainer,
+  .barPieContainer {
+    flex-direction: column;
+  }
+
+  .welcomeCard,
+  .barChart {
+    max-width: 100%;
+  }
+
+  .chart1,
+  .chart2,
+  .chart3 {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .loginButton {
+    font-size: 0.875rem;
+    padding: 0.5rem;
+  }
+
+  .userBadge button {
+    font-size: 0.875rem;
+    padding: 0.5rem;
+  }
+
+  .content {
+    padding: 1rem;
+  }
 }

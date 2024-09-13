@@ -4,14 +4,14 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const PieChart = () => {
+const PieChart = ({ isDarkMode }) => {
     const data = {
         labels: ['Part 1', 'Part 2', 'Part 3'],
         datasets: [
             {
                 data: [30, 40, 30],
-                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-                hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+                backgroundColor: isDarkMode ? ['#3c1ead', '#ff7777', '#2bebc8'] : ['#FF6384', '#36A2EB', '#FFCE56'],
+                hoverBackgroundColor: isDarkMode ? ['#3c1ead', '#ff7777', '#2bebc8'] : ['#FF6384', '#36A2EB', '#FFCE56'],
             },
         ],
     };
@@ -34,9 +34,30 @@ const PieChart = () => {
     };
 
     return (
-        <div style={{ width: '24rem', height: '17rem', position: 'relative', backgroundColor: '#FFFFFF', padding: '1.5rem 0 0 0', borderRadius: '0.5rem 0 0 0', boxSizing: 'border-box' }}>
+        <div
+            style={{
+                width: '24rem',
+                height: '17rem',
+                position: 'relative',
+                backgroundColor: isDarkMode ? '#0D0C0F' : '#FFFFFF',
+                padding: '1.5rem 0 0 0',
+                borderRadius: '0.5rem 0 0 0',
+                boxSizing: 'border-box',
+            }}
+        >
             {/* Chart Title */}
-            <div style={{ position: 'absolute', top: '0.2rem', left: '0', width: '100%', textAlign: 'center', fontSize: '1.125rem', fontWeight: 'bold', color: '#000000' }}>
+            <div
+                style={{
+                    position: 'absolute',
+                    top: '0.2rem',
+                    left: '0',
+                    width: '100%',
+                    textAlign: 'center',
+                    fontSize: '1.125rem',
+                    fontWeight: 'bold',
+                    color: isDarkMode ? '#ECECEC' : '#000000',
+                }}
+            >
                 Chart Title
             </div>
             {/* Chart */}

@@ -1,15 +1,20 @@
 import React from 'react';
 import { Box } from '@mui/material';
-import { ReactComponent as SidebarTabsSVG } from '../../assets/Menu_light.svg';
-import { ReactComponent as LogoSVG } from '../../assets/Logo.svg';
+import { ReactComponent as SidebarTabsLightSVG } from '../../assets/Menu_light.svg';
+import { ReactComponent as SidebarTabsDarkSVG } from '../../assets/Menu_dark.svg';
+import { ReactComponent as LogoLightSVG } from '../../assets/Logo.svg';
+import { ReactComponent as LogoDarkSVG } from '../../assets/Logo_dark.svg';
 
-const Sidebar = () => {
+const Sidebar = ({ isDarkMode }) => {
+  const backgroundColor = isDarkMode ? '#151718' : '#FFFFFF';
+  const logoBackgroundColor = isDarkMode ? '#000000' : '#ECECEC';
+
   return (
     <Box
       sx={{
         width: '16rem',
         height: '100vh',
-        backgroundColor: '#FFFFFF',
+        backgroundColor: backgroundColor,
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
@@ -24,11 +29,11 @@ const Sidebar = () => {
             height: '4.5rem',
             width: '100%',
             padding: '1.5rem',
-            backgroundColor: '#ECECEC',
+            backgroundColor: logoBackgroundColor,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            fontSize: '1.5rrem',
+            fontSize: '1.5rem',
             fontWeight: 'bold',
             textAlign: 'center',
             gap: '0.375rem',
@@ -36,7 +41,11 @@ const Sidebar = () => {
             margin: 0,
           }}
         >
-          <LogoSVG style={{ height: 'fit-content', width: 'auto' }} />
+          {isDarkMode ? (
+            <LogoDarkSVG style={{ height: 'fit-content', width: 'auto' }} />
+          ) : (
+            <LogoLightSVG style={{ height: 'fit-content', width: 'auto' }} />
+          )}
         </Box>
 
         {/* SVG for Tab List */}
@@ -51,7 +60,11 @@ const Sidebar = () => {
             overflow: 'hidden',
           }}
         >
-          <SidebarTabsSVG style={{ width: '100%', height: 'auto' }} />
+          {isDarkMode ? (
+            <SidebarTabsDarkSVG style={{ width: '100%', height: 'auto' }} />
+          ) : (
+            <SidebarTabsLightSVG style={{ width: '100%', height: 'auto' }} />
+          )}
         </Box>
       </div>
     </Box>
