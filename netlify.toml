@@ -1,0 +1,15 @@
+[build]
+  # Command to build your front-end
+  command = "cd front-end && npm install && npm run build"
+  # Directory that contains your static files
+  publish = "front-end/build"
+
+[functions]
+  # Directory where Netlify functions are stored
+  directory = "back-end/netlify/functions"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+  force = true

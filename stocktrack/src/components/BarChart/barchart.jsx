@@ -12,7 +12,7 @@ const BarChart = ({ isDarkMode, symbol }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/api/stocks/${symbol}`);
+                const response = await fetch(`/.netlify/functions/stockData?${symbol}`);
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
